@@ -4,6 +4,8 @@ function CategoryFilter({categories, allTasks, setTasksToShow}) {
 
   function handleCategoryClick(event){
     const category = event.target.textContent
+    event.target.parentElement.querySelectorAll('button').forEach(btn=> btn.classList.remove("selected"))
+    event.target.classList.add("selected")
 
     if(category === "All"){
       setTasksToShow(allTasks)
