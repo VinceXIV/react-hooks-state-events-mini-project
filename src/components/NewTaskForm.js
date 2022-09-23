@@ -1,6 +1,9 @@
 import React from "react";
 
-function NewTaskForm() {
+function NewTaskForm({categories, onTaskFormSubmit}) {
+  const categoryList = categories.filter(category => category !== "All")
+  .map(category => {return <option key={category}>{category}</option>})
+  
   return (
     <form className="new-task-form">
       <label>
@@ -10,7 +13,7 @@ function NewTaskForm() {
       <label>
         Category
         <select name="category">
-          {/* render <option> elements for each category here */}
+          {categoryList}
         </select>
       </label>
       <input type="submit" value="Add task" />

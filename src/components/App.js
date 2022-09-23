@@ -10,11 +10,15 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [tasksToShow, setTasksToShow] = useState(TASKS)
 
+  function addTask(event){
+    console.log(event)
+  }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} allTasks={TASKS} setTasksToShow={setTasksToShow}/>
-      <NewTaskForm />
+      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={addTask}/>
       <TaskList tasks={tasksToShow} setTasksToShow={setTasksToShow} />
     </div>
   );
