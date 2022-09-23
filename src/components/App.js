@@ -8,17 +8,18 @@ console.log("Here's the data you're working with");
 console.log({ CATEGORIES, TASKS });
 
 function App() {
-  const [tasksToShow, setTasksToShow] = useState(TASKS)
+  const [allTasks, setAllTasks] = useState(TASKS)
+  const [tasksToShow, setTasksToShow] = useState(allTasks)
 
-  function addTask(event){
-    console.log(event)
+  function onTaskFormSubmit(newTask){
+    setTasksToShow([...tasksToShow, newTask])
   }
 
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter categories={CATEGORIES} allTasks={TASKS} setTasksToShow={setTasksToShow}/>
-      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={addTask}/>
+      <CategoryFilter categories={CATEGORIES} allTasks={allTasks} setTasksToShow={setTasksToShow}/>
+      <NewTaskForm categories={CATEGORIES} onTaskFormSubmit={onTaskFormSubmit}/>
       <TaskList tasks={tasksToShow} setTasksToShow={setTasksToShow} />
     </div>
   );
