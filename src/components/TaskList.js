@@ -14,7 +14,7 @@ function TaskList({tasks, setTasksToShow}) {
   }
 
   const taskList = tasks.map(task => {
-    return <Task key={task.text} taskName={task.text} taskCategory={task.category} handleDelete={handleDelete}/>
+    return <Task key={task.text} text={task.text} category={task.category} handleDelete={handleDelete}/>
   })
   return (
     <div className="tasks">
